@@ -20,7 +20,7 @@ fn main(){
     let lap = add(7,8);
     println!("using return and pointer{}",lap);
 
-    let a = 12;
+    let _a = 12;
     let a = 14;
     println!("example of shadowing {}",a);
     //in this case the value of a is 14 because of shadowing as it shadows the previous value of a which is 12
@@ -74,6 +74,65 @@ fn main(){
     let fe =&mut ef;
     fe.push_str("i guess i'll sleep after this");
     println!("{}",fe);
+
+    let table = [2, 3 ,4, 5,6, 7, 8,9,10, 11];
+    for mut i in table{
+        println!("{}",i);
+        println!("2*{}={}",i,2*i);
+        i +=1;
+        if i ==11{
+            break;
+        }
+    }
+    println!("this array had {} elements",table.len());
+    println!("{:?}",table);
+    println!("{}",table[3]);
+
+    let mut class = vec!["abhi" , "rushi", "Raj", "Shreya"];
+    class.push("shreyash");
+    println!("{:?}",class);
+    class.remove(1);
+    class.pop();
+    println!("{:?}",class);
+    class.insert(1,"rushi");
+    class.insert(2 , "pankaj");
+    println!("{:?}",class);
+    println!("{}",class.len());
+    for mut j in &class{
+        if *j == "shreya"{
+            println!("shreya has been found");
+        }
+        else{
+            println!(" those are the valuse before finding shreya : -{}",j);
+        }
+    }  // in this why the output shreya has been found didn't pop up because we can't increment string like numbers we can't use  i += 1 here because it will not follow the rules here 
+    //and *j is dereference as &class shows reference both nullify each other 
+    //we can write the code like this too
+    // for j in class {
+    // if j == "shreya" {
+    //     println!("shreya has been found");
+    // }}
+    let detail = ("abhishek","Tupe", 20 , true);
+    println!("the full name of the candidate is {} {} ",detail.0,detail.1);
+    println!("the age of the candidate is {}",detail.2);
+    if detail.2 > 18{
+        println!("the candidate is eligible for exam {}",detail.3);
+    }
+    let (name , surname , age ,eligible) = detail;
+    println!("the full name of the candidate is {} {} ",name,surname);
+    println!("the age of the candidate is {}",age);
+    if age > 18{
+        println!("the candidate is eligible for exam {}",eligible);
+    }
+
+    fn vote() -> (String, i32){
+         ("pushpa".to_string(),33)
+
+    }
+    let char = vote();
+    println!("the name of the person is {} and his age 2 years ago was {}", char.0,char.1);
+
+
 
 
 
