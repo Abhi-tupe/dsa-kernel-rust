@@ -133,7 +133,7 @@ fn main(){
     }
     let char = vote();
     println!("the name of the person is {} and his age 2 years ago was {}", char.0,char.1);
-
+    //date12/04/2026
     //hashmap
     let mut student = HashMap::new();
     //key and value insertion
@@ -195,7 +195,7 @@ fn main(){
         vote : true
     };
 
-    _vote.age=21;
+    _vote.age=21;//not this will print age 21 not 20 becaue we can update the value by making the struct mutable
 
     println!("the name of the student is {} and his age is {} and his score is {} and his vote is {}",_vote.name,_vote.age,_vote.score,_vote.vote);
 
