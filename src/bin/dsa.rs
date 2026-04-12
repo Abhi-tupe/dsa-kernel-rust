@@ -1,3 +1,5 @@
+
+use std::collections::HashMap;
 fn main(){
     fn abhi(){
         //let message = "hello abhi this side";
@@ -98,7 +100,7 @@ fn main(){
     class.insert(2 , "pankaj");
     println!("{:?}",class);
     println!("{}",class.len());
-    for mut j in &class{
+    for  j in &class{
         if *j == "shreya"{
             println!("shreya has been found");
         }
@@ -132,9 +134,69 @@ fn main(){
     let char = vote();
     println!("the name of the person is {} and his age 2 years ago was {}", char.0,char.1);
 
+    //hashmap
+    let mut student = HashMap::new();
+    //key and value insertion
+    student.insert("Abhi", 60);
+    student.insert("Abhi", 90);//if we insert the same key again it will update the value of that key to the new value
+    student.insert("Rushi", 90);
+    student.insert("Shreya", 80);
+    student.insert("Pankaj", 70);
 
+    student.remove("Pamkaj");
+    println!("student records are {:?}",student);
+    if let Some(marks)=student.get("Abhi"){
+        println!("Student abhi has been found and his marks are {}",marks);
+    }
+    else{
+        println!("student abhi has not been found");
+    }
+    //Some is used to handle the case when the key is not found in the hashmap and it returns None in that case
+    //we can also use match statement to handle the case when the key is not found in the hashmap
+    match student.get("Rushi"){
+        Some(marks) => println!("Student Rushi has been found and his marks are {}",marks),
+        None => println!("student Rushi has not been found"),
+    }
 
+    let mut table = HashMap::new();
+    table.insert("Table of 2", 2);
+    table.insert("Table of 3", 3);
+    table.insert("Table of 4", 4);
+    for (key , value) in table{
+        let abhi = [1,2,3,4,5,6,7,8,9,10];
+            for i in abhi{
+                if value == 2{
+                    println!("{} * {} = {}",value,i,value*i);
+                }
+                if value == 3{
+                    println!("{} * {} = {}",value,i,value*i);
+                }
+                else if value == 4{
+                    println!("{} * {} = {}",value,i,value*i);
+                }
+                else{
+                    println!("this is not a valid table");
+                }
+                
+            }    
+        
+    }
 
+    struct Studdata{
+        name :String,
+        age : i32,
+        score : i32,
+        vote : bool,
+    }
+    let mut  _vote = Studdata{
+        name : "Abhi".to_string(),
+        age : 20,
+        score : 90,
+        vote : true
+    };
 
+    _vote.age=21;
+
+    println!("the name of the student is {} and his age is {} and his score is {} and his vote is {}",_vote.name,_vote.age,_vote.score,_vote.vote);
 
 }
